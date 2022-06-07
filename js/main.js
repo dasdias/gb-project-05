@@ -12,8 +12,8 @@ const app = new Vue({
     },
     methods: {
         filter(){
-         const regexp = new RegExp(this.userSearch, 'i');
-         this.filtered = this.products.filter(product => regexp.test(product.product_name));
+          const regexp = new RegExp(this.userSearch, 'i');
+          this.filtered = this.products.filter(product => regexp.test(product.product_name));
         },
         getJson(url){
             return fetch(url)
@@ -27,18 +27,20 @@ const app = new Vue({
         }
     },
     mounted(){
-       this.getJson(`${API + this.catalogUrl}`)
-           .then(data => {
-               for(let el of data){
-                   this.products.push(el);
-               }
-           });
-        this.getJson(`getProducts.json`)
-            .then(data => {
-                for(let el of data){
-                    this.products.push(el);
-                }
-            })
+      this.getJson(`${API + this.catalogUrl}`)
+          .then(data => {
+            for(let el of data){
+              this.products.push(el);
+              this.filtered.push(el);
+            }
+          });
+      this.getJson(`getProducts.json`)
+          .then(data => {
+              for(let el of data){
+                  this.products.push(el);
+                  this.filtered.push(el);
+              }
+          })
     }
 })
 
