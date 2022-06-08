@@ -79,7 +79,7 @@ img {
     background-color: white;
     padding: 20px;
     color: black;
-    width: 300px;
+    /* width: 300px; */
 }
 
 .invisible{
@@ -125,6 +125,8 @@ img {
 .cart-item img{
     align-self: flex-start;
     margin-right: 15px;
+    max-width: 50%;
+    width: 100%;
 }
 .product-single-price{
     color: #474747;
